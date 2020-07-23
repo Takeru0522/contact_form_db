@@ -16,7 +16,7 @@ $stmt->execute();
 $surveys = $stmt->fetchAll();
 
 var_dump($surveys);
-
+$dbh = null;
 
 ?>
 
@@ -28,12 +28,16 @@ var_dump($surveys);
     <title>Document</title>
 </head>
 <body>
-    
+
     <div class="container">
 
-        <h2></h2>
-        <p></p>
-        <p></p>
+        <?php foreach($surveys as $survey): ?>
+        
+        <h2><?= $survey['nickname'] ?></h2>
+        <p><?= $survey['email'] ?></p>
+        <p><?= $survey['content'] ?></p>
+        
+        <?php endforeach; ?>
 
     </div>
 </body>
